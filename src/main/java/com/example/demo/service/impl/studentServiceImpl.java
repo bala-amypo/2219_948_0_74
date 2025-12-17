@@ -10,4 +10,11 @@ import java.util.*;
 public class studentServiceImpl implements studentService{
       @Autowired
     studentRepo repo;
+
+    public List<studentEntity> getAll(){
+        return repo.findAll();
+    }
+    public studentEntity addStudents(studentEntity student){
+        return repo.save(student);
+    }
 }

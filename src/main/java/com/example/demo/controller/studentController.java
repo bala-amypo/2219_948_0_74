@@ -16,7 +16,7 @@ public class studentController{
         return service.getAll();
     }
 
-    @PostMapping("/addStudents")
+    @PostMapping("/add")
     public studentEntity addStudents(@Valid @RequestBody studentEntity student){
         return service.addStudents(student);
     }

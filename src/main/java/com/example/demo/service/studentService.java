@@ -8,5 +8,8 @@ public class studentService{
     
 
      List<studentEntity> getAll();
-     studentEntity addStudents(studentEntity student)
+
+     studentEntity addStudents(studentEntity student);
+
+     
 }
