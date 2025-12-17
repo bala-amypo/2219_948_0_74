@@ -1,4 +1,4 @@
-package.com.example.demo.service;
+package com.example.demo.service;
 
 import com.example.demo.entity.*;
 import java.util.*;
@@ -11,5 +11,5 @@ public class studentService{
 
      studentEntity addStudents(studentEntity student);
 
-     
+
 }
