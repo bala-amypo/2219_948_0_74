@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 import com.example.demo.entity.studentEntity;
 import com.example.demo.repository.studentRepo;
 import com.example.demo.service.studentService;
-import com.example.demo.exception.studentNotFoundException;
+
+import com.example.demo.exception.*;
 
 @Service
 public class studentServiceImpl implements studentService {
@@ -16,15 +17,27 @@ public class studentServiceImpl implements studentService {
     @Autowired
     studentRepo repo;
 
-    @Override
     public List<studentEntity> getAll() {
         return repo.findAll();
     }
 
-    @Override
     public studentEntity addStudent(studentEntity student) {
         return repo.save(student);
     }
+
     public studentEntity getbyId(Long id){
-        return repo.findById(id).orElseThrow(() -> throw new studentNotFoundException(errMsg:"Student ID not Found"));    }
+        return repo.findById(id).orElseThrow(() -> new StudentNotFoundException("student id not found"));
+    }
+    public studentEntity updateBy(Long id,studentEntity newstu){
+        studentEntity existing = getbyId(id);
+        newstu.setId(existing.getId());
+        return repo.save(newstu);
+
+    }
+
+    public studentEntity deleteByID(Long id){
+        studentEntity data = getById(id);
+        return repo.deleteByID(id);
+    }
+
 }
