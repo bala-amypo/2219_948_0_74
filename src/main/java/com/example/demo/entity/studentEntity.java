@@ -21,7 +21,16 @@ public class studentEntity{
     public Long getId(){
         return id;
     }
-
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public String getEmail(){
+        return email;
+    }
+    p
     public studentEntity(){
 
     }
