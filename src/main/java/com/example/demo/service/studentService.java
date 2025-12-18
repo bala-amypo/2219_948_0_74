@@ -9,7 +9,7 @@ public class studentService{
 
      List<studentEntity> getAll();
 
-     studentEntity addStudents(studentEntity student);
+     studentEntity addStudent(studentEntity student);
 
 
 }
