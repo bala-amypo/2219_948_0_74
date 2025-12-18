@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.entity.studentEntity;
 import com.example.demo.repository.studentRepo;
 import com.example.demo.service.studentService;
+import com.example.demo.exception.studentNotFoundException;
 
 @Service
 public class studentServiceImpl implements studentService {
@@ -25,6 +26,5 @@ public class studentServiceImpl implements studentService {
         return repo.save(student);
     }
     public studentEntity getbyId(Long id){
-        return repo.findbyId(id
-.orElseThrow(() -> throw new studentNotFoundException(errMsg:"Student ID not Found"));    }
+        return repo.findById(id).orElseThrow(() -> throw new studentNotFoundException(errMsg:"Student ID not Found"));    }
 }
